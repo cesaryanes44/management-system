@@ -38,7 +38,7 @@
              ENCABEZADO DE LA PÁGINA
              ================================================ -->
         <div class="list-header">
-            <!-- Enlace para volver al dashboard -->
+            <!-- Enlace para volver al menu -->
             <a href="dashboard.html" class="back-btn">
                 ← Volver al Dashboard
             </a>
@@ -49,9 +49,7 @@
         <!-- ================================================
              FILTROS DE BÚSQUEDA
              ================================================
-             Esta sección permite al usuario filtrar los clientes
-             por nombre o código (ID).
-        -->
+             Esto permite filtrar los clientes por nombre o código (ID). -->
         <div class="filters">
             <!-- Campo: Buscar por nombre o código -->
             <div class="filter-group">
@@ -81,19 +79,13 @@
                     </tr>
                 </thead>
 
-                <!-- Cuerpo de la tabla (filas generadas por JavaScript) -->
-                <tbody id="tabla-clientes">
+                <!-- Cuerpo de la tabla-->
+                <tbody id="tabla-clientes"> </tbody>
                     <!--
-                        NOTA: Las filas se generan dinámicamente
-                        mediante JavaScript en el archivo logica.js
-
+                        NOTA: Las filas se generan en el archivo logica.js
                         El código JavaScript:
-                        1. Obtiene los datos del arreglo listaClientes (en datos.js)
-                        2. Los filtra según el texto de búsqueda
-                        3. Genera una fila <tr> por cada cliente
-                        4. Inserta cada fila en este <tbody>
+                        Obtiene los datos del arreglo listaClientes en datos.js
                     -->
-                </tbody>
             </table>
 
             <!-- ================================================
@@ -134,17 +126,15 @@
 
     </main>
 
-    <!-- Incluir los archivos JavaScript -->
-    <!-- Orden importante: primero datos.js, después logica.js -->
+    <!-- Archivos JavaScript -->
     <script src="datos.js"></script>
     <script src="logica.js"></script>
 
     <!-- Script de inicialización -->
     <script>
-        // Este código se ejecuta cuando la página termina de cargar
-        // DOMContentLoaded significa "Cuando el DOM esté listo"
+        // Cuando la página termina de cargar se ejecuta
         document.addEventListener("DOMContentLoaded", function() {
-            // Inicializar la página de clientes
+            // Inicializar clientes
             inicializarPaginaClientes();
         });
     </script>
