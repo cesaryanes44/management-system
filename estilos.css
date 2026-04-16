@@ -1,0 +1,370 @@
+/* ================================================
+   ESTILOS BÁSICOS - CSS PARA LA APLICACIÓN
+   ================================================
+
+   Este archivo contiene todos los estilos CSS
+   de la aplicación.
+*/
+
+/* ----------------------------------------
+   RESET BÁSICO Y FUENTE PRINCIPAL
+   ---------------------------------------- */
+* {
+    /* box-sizing: border-box asegura que el padding y el borde
+       se incluyan en el ancho/alto total del elemento. */
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    /* font-family: Define la fuente principal del texto. */
+    font-family: Calibri, sans-serif;
+
+    /* background-color: Color de fondo de la página.
+       #f4f4f4 es un gris muy claro, casi blanco. */
+    background-color: #f4f4f4;
+
+    /* line-height: Altura de línea del texto.*/
+    line-height: 1.6;
+}
+
+/* ----------------------------------------
+   ESTILOS DEL CONTENEDOR PRINCIPAL
+   ---------------------------------------- */
+.container {
+    /* max-width: Ancho máximo del contenedor.*/
+    max-width: 800px;
+
+    /* margin: Espacio externo del elemento. */
+    margin: auto;
+
+    /* padding: Espacio interno del elemento.*/
+    padding: 20px 0;
+}
+
+/* ----------------------------------------
+   ESTILOS DE LA TARJETA (CARD)
+   ---------------------------------------- */
+/* .card: crea cajas con fondo blanco y sombra sutil. */
+.card {
+    /* background-color: Fondo blanco*/
+    background-color: #fff;
+
+    /* border-radius: Esquinas redondeadas. */
+    border-radius: 8px;
+
+    /* box-shadow: Sombra externa del elemento.*/
+    box-shadow: 0 2px 4px rgb(30, 211, 224);
+
+    /* padding: Espacio interno en todos los lados */
+    padding: 20px;
+
+    /* margin-bottom: Espacio debajo de cada tarjeta */
+    margin-bottom: 20px;
+}
+
+/* ----------------------------------------
+   ESTILOS DEL ENCABEZADO
+   ---------------------------------------- */
+.header {
+    /* background-color: Azul */
+    background-color: rgb(30, 114, 224);
+
+    /* color: Color del texto */
+    color: #fff;
+
+    /* padding: Espacio interno */
+    padding: 15px 20px;
+
+    /* display: alinea y distribuye el elemento fácilmente. */
+    display: flex;
+
+    /* justify-content: Distribución horizontal de los elementos.
+       primer elemento a la izquierda, último elemento a la derecha, resto distribuidos uniformemente. */
+    justify-content: space-between;
+
+    /* align-items: Alineación de los elementos */
+    align-items: center;
+}
+
+/* ----------------------------------------
+   ESTILOS DE LOS BOTONES
+   ---------------------------------------- */
+/* Botón principal */
+.btn {
+    /* el elemento se comporte como un bloque en línea. Fluye con el texto de la zona. */
+    display: inline-block;
+
+    /* padding: Espacio interno */
+    padding: 10px 20px;
+
+    /* border: Borde del botón. */
+    border: none;
+
+    /* border-radius: Esquinas redondeadas */
+    border-radius: 4px;
+
+    /* cursor: Forma del cursor cuando se pasa sobre el botón (mano).*/
+    cursor: pointer;
+
+    /* font-size: Tamaño de la fuente */
+    font-size: 14px;
+
+    /* text-decoration: sin decoración al texto. */
+    text-decoration: none;
+
+    /* text-align: Alineación de texto dentro del botón */
+    text-align: center;
+
+    /* transition: Animación suave cuando cambian las propiedades.*/
+    transition: all 0.3s;
+}
+
+/* botón primario (Cliente) */
+.btn-primary {
+    background-color: #007bff;
+    color: #fff;
+}
+
+/* se activa cuando el cursor está sobre el elemento. */
+.btn-primary:hover {
+    /* Opacidad */
+    opacity: 0.8;
+}
+
+/* Variante de botón secundario (Productos) */
+.btn-secondary {
+    background-color: #28a745;
+    color: #fff;
+}
+
+.btn-secondary:hover {
+    opacity: 0.8;
+}
+
+/* Variante de botón (Cerrar sesion) */
+.btn-danger {
+    background-color: #dc3545;
+    color: #fff;
+}
+
+.btn-danger:hover {
+    opacity: 0.8;
+}
+
+/* ----------------------------------------
+   ESTILOS DEL FORMULARIO DE LOGIN
+   ---------------------------------------- */
+.login-container {
+    max-width: 400px;
+    margin: 100px auto; /*centrar */
+    padding: 20px;
+}
+
+.login-form {
+    /* flex con column los pone vertical */
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Espacio entre ellos */
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.form-group label {
+    font-weight: bold; /* Fuente: negrita */
+    color: #333;
+}
+
+.form-group input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+/* se activa cuando el cursor está dentro */
+.form-group input:focus {
+    outline: none; /* Elimina el contorno del navegador */
+    border-color: #007bff; /* Cambia el color del borde */
+}
+
+/* ----------------------------------------
+   ESTILOS DEL MENÚ DE NAVEGACIÓN
+   ---------------------------------------- */
+.nav-menu {
+    display: flex;
+    gap: 15px; /* espacio entre ellos*/
+}
+
+.nav-menu a {
+    color: #fff;
+    text-decoration: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+.nav-menu a:hover {
+    background-color: rgba(255,255,255,0.2);
+}
+
+/* ----------------------------------------
+   ESTILOS DE LA PÁGINA DASHBOARD
+   ---------------------------------------- */
+.dashboard {
+    padding: 20px;
+}
+
+.dashboard h1 {
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.dashboard-card {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+.dashboard-card h3 {
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.dashboard-card p {
+    color: #666;
+    margin-bottom: 15px;
+}
+
+/* ----------------------------------------
+   ESTILOS DE LA PÁGINA DE LISTADOS
+   ---------------------------------------- */
+.list-page {
+    padding: 20px;
+}
+
+.list-header {
+    margin-bottom: 20px;
+}
+
+.list-header h1 {
+    color: #333;
+    margin-bottom: 15px;
+}
+
+/* Contenedor de filtros */
+.filters {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap; /* los elementos saltan a nueva línea */
+    margin-bottom: 20px;
+    padding: 15px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+}
+
+.filter-group {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    flex: 1;
+    min-width: 200px;
+}
+
+.filter-group label {
+    font-weight: bold;
+    font-size: 14px;
+    color: #333;
+}
+
+.filter-group input {
+    padding: 8px 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+/* Tabla de datos */
+.data-table {
+    width: 100%;
+    border-collapse: collapse; /* quita espacio entre celdas */
+    background-color: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.data-table th,
+.data-table td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #eee;
+}
+
+.data-table th {
+    background-color: #f8f9fa;
+    font-weight: bold;
+    color: #333;
+}
+
+/* :hover en filas de tabla */
+.data-table tbody tr:hover {
+    background-color: #f8f9fa;
+}
+
+/* Mensaje cuando no hay resultados */
+.no-results {
+    text-align: center;
+    padding: 40px;
+    color: #666;
+    background-color: #fff;
+    border-radius: 8px;
+}
+
+/* Botón de volver atrás */
+.back-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    margin-bottom: 20px;
+    color: #007bff;
+    text-decoration: none;
+}
+
+.back-btn:hover {
+    text-decoration: underline;
+}
+
+/* ----------------------------------------
+   ESTILOS PARA MENSAJES DE ERROR
+   ---------------------------------------- */
+.error-message {
+    background-color: #f8d7da;
+    color: #721c24;
+    padding: 10px 15px;
+    border-radius: 4px;
+    margin-bottom: 15px;
+    border: 1px solid #f5c6cb;
+}
+
+.success-message {
+    background-color: #d4edda;
+    color: #155724;
+    padding: 10px 15px;
+    border-radius: 4px;
+    margin-bottom: 15px;
+    border: 1px solid #c3e6cb;
+}

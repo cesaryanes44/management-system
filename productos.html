@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listado de Productos - Sistema de Gestión</title>
+    <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+    <!-- ================================================
+         ENCABEZADO CON BARRA DE NAVEGACIÓN
+         ================================================ -->
+    <header class="header">
+        <h2>Sistema de Gestión</h2>
+
+        <!-- Menú de navegación -->
+        <nav class="nav-menu">
+            <a href="dashboard.html">Inicio</a>
+            <a href="clientes.html">Clientes</a>
+            <a href="productos.html">Productos</a>
+        </nav>
+
+        <!-- Botón para cerrar sesión -->
+        <button
+            class="btn btn-danger"
+            onclick="cerrarSesion()"
+            style="padding: 5px 15px; font-size: 13px;"
+        >
+            Cerrar Sesión
+        </button>
+    </header>
+
+    <!-- ================================================
+         CONTENIDO PRINCIPAL
+         ================================================ -->
+    <main class="list-page">
+        <!-- ================================================
+             ENCABEZADO DE LA PÁGINA
+             ================================================ -->
+        <div class="list-header">
+            <!-- Enlace para volver al dashboard -->
+            <a href="dashboard.html" class="back-btn">
+                ← Volver al Dashboard
+            </a>
+
+            <h1>Listado de Productos</h1>
+        </div>
+
+        <!-- ================================================
+             FILTROS DE BÚSQUEDA
+             ================================================ -->
+        <div class="filters">
+            <!-- Campo: Buscar por nombre o código de producto -->
+            <div class="filter-group">
+                <label for="busqueda-nombre">Buscar:</label>
+                <input
+                    type="text"
+                    id="busqueda-nombre"
+                    placeholder="Escribe para filtrar por nombre o código (ej: PROD-001)..."
+                    oninput="filtrarAlEscribir()"
+                >
+            </div>
+        </div>
+
+        <!-- ================================================
+             TARJETA CON LA TABLA DE DATOS
+             ================================================ -->
+        <div class="card">
+            <table class="data-table">
+                <!-- Encabezados de columna -->
+                <thead>
+                    <tr>
+                        <th>Código</th>
+                        <th>Nombre</th>
+                        <th>Categoría</th>
+                        <th>Precio</th>
+                        <th>Stock</th>
+                    </tr>
+                </thead>
+
+                <!-- Cuerpo de la tabla (filas generadas por JavaScript) -->
+                <tbody id="tabla-productos">
+                    <!--
+                        Las filas se generan dinámicamente
+                        mediante JavaScript en el archivo logica.js
+                    -->
+                </tbody>
+            </table>
+
+            <!-- Mensaje cuando no hay resultados -->
+            <div id="sin-resultados-productos" class="no-results" style="display: none;">
+                <p>No se encontraron productos que coincidan con la búsqueda.</p>
+                <p style="font-size: 14px; margin-top: 10px;">
+                    Intenta con otro nombre o código de producto.
+                </p>
+            </div>
+        </div>
+
+        <!-- Tarjeta: Explicación del filtrado -->
+        <div class="card" style="margin-top: 20px; background-color: #f8f9fa;">
+            <h3 style="margin-bottom: 15px; color: #007bff;">
+                💡 ¿Cómo funciona el filtrado?
+            </h3>
+            <p style="margin-bottom: 15px;">
+                El filtrado busca en dos campos simultáneamente:
+            </p>
+            <ul style="margin-left: 20px; line-height: 1.8;">
+                <li>
+                    <strong>Código del producto:</strong> Busca códigos como "PROD-001", "PROD-002"
+                </li>
+                <li>
+                    <strong>Nombre del producto:</strong> Busca texto como "Laptop", "Mouse", "Teclado"
+                </li>
+            </ul>
+            <p style="margin-top: 15px;">
+                <strong>No distingue entre mayúsculas y minúsculas.</strong>
+            </p>
+        </div>
+
+    </main>
+
+    <!-- Incluir los archivos JavaScript -->
+    <script src="datos.js"></script>
+    <script src="logica.js"></script>
+
+    <!-- Script de inicialización -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            inicializarPaginaProductos();
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,332 @@
+<!--
+    ================================================
+    EXPLICACIÓN DETALLADA DE LOS ARREGLOS EN JAVASCRIPT
+    ================================================
+
+    Esta página explica paso a paso cómo funcionan los ARREGLOS (ARRAYS)
+    en JavaScript, que es lo que usaremos para almacenar los datos.
+
+    Un ARREGLO es como una CAJA con COMPARTIMENTOS.
+    Cada compartimento tiene un NÚMERO (índice) y puede guardar un VALOR.
+
+    Piensa en un arreglo como una fila de casilleros:
+
+    Índice:    [  0  ][  1  ][  2  ][  3  ][  4  ]
+    Valor:     ["Ana"]["Luis"]["Pedro"]["María"]["Carlos"]
+
+    IMPORTANTÍSIMO: Los índices en JavaScript EMPIEZAN EN 0, no en 1.
+    Por eso el primer elemento está en la posición 0.
+-->
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explicación: Arreglos en JavaScript</title>
+    <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+    <div class="container">
+        <h1 style="text-align: center; margin-bottom: 30px;">📚 Explicación: Arreglos en JavaScript</h1>
+
+        <!-- Sección 1: ¿Qué es un Arreglo? -->
+        <div class="card">
+            <h2 style="color: #007bff; margin-bottom: 15px;">1. ¿Qué es un Arreglo (Array)?</h2>
+
+            <p style="margin-bottom: 15px;">
+                Un <strong>Arreglo</strong> es una estructura de datos que permite almacenar
+                múltiples valores en una sola variable. Cada valor se guarda en una posición
+                llamada <strong>índice</strong>.
+            </p>
+
+            <p style="margin-bottom: 15px;">
+                <strong>Analogía:</strong> Imagina un edificio de departamentos. Cada departamento
+                tiene un número (índice) y puede tener un inquilino (valor). El edificio es el
+                arreglo, los departamentos son las posiciones.
+            </p>
+        </div>
+
+        <!-- Sección 2: Cómo Crear un Arreglo -->
+        <div class="card">
+            <h2 style="color: #007bff; margin-bottom: 15px;">2. Cómo Crear un Arreglo</h2>
+
+            <p style="margin-bottom: 15px;">
+                Hay dos formas de crear un arreglo en JavaScript:
+            </p>
+
+            <pre style="background-color: #f4f4f4; padding: 15px; border-radius: 4px; margin-bottom: 15px; overflow-x: auto;">
+// FORMA 1: Usando corchetes [] (la más común y recomendada)
+// Los elementos se separan por comas
+var frutas = ["Manzana", "Naranja", "Plátano", "Uva"];
+
+// FORMA 2: Usando la palabra clave "new Array()"
+// Menos común, pero válida
+var verduras = new Array("Zanahoria", "Brócoli", "Espinaca");
+
+// ARREGLO VACÍO (luego lo llenamos con .push())
+var arreglovacio = [];
+var arreglovacio2 = new Array();
+            </pre>
+        </div>
+
+        <!-- Sección 3: Acceder a los Elementos -->
+        <div class="card">
+            <h2 style="color: #007bff; margin-bottom: 15px;">3. Cómo Acceder a los Elementos</h2>
+
+            <p style="margin-bottom: 15px;">
+                Para obtener un valor específico del arreglo, usamos el nombre del arreglo
+                seguido del índice entre corchetes: <code>nombreArreglo[índice]</code>
+            </p>
+
+            <pre style="background-color: #f4f4f4; padding: 15px; border-radius: 4px; margin-bottom: 15px; overflow-x: auto;">
+var colores = ["Rojo", "Azul", "Verde", "Amarillo"];
+
+// Acceder al PRIMER elemento (índice 0)
+console.log(colores[0]); // Resultado: "Rojo"
+
+// Acceder al SEGUNDO elemento (índice 1)
+console.log(colores[1]); // Resultado: "Azul"
+
+// Acceder al CUARTO elemento (índice 3)
+console.log(colores[3]); // Resultado: "Amarillo"
+
+// Si accedes a un índice que NO existe, obtienes "undefined"
+console.log(colores[10]); // Resultado: undefined
+            </pre>
+
+            <div style="background-color: #e7f3ff; padding: 15px; border-radius: 4px;">
+                <p style="margin-bottom: 10px;">
+                    <strong>⚠️ MUY IMPORTANTE:</strong> Los índices en JavaScript EMPIEZAN EN 0.
+                </p>
+                <ul style="margin-left: 20px;">
+                    <li>Índice 0 = Primer elemento</li>
+                    <li>Índice 1 = Segundo elemento</li>
+                    <li>Índice 2 = Tercer elemento</li>
+                    <li>Y así sucesivamente...</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Sección 4: Propiedades y Métodos Útiles -->
+        <div class="card">
+            <h2 style="color: #007bff; margin-bottom: 15px;">4. Propiedades y Métodos Útiles</h2>
+
+            <p style="margin-bottom: 15px;">
+                Los arreglos tienen <strong>propiedades</strong> (información sobre el arreglo)
+                y <strong>métodos</strong> (funciones que podemos llamar para hacer cosas).
+            </p>
+
+            <h3 style="color: #333; margin-bottom: 10px;">Propiedad: length</h3>
+            <pre style="background-color: #f4f4f4; padding: 15px; border-radius: 4px; margin-bottom: 15px; overflow-x: auto;">
+// length = cantidad de elementos en el arreglo
+var numeros = [10, 20, 30, 40, 50];
+console.log(numeros.length); // Resultado: 5
+            </pre>
+
+            <h3 style="color: #333; margin-bottom: 10px;">Método: push()</h3>
+            <pre style="background-color: #f4f4f4; padding: 15px; border-radius: 4px; margin-bottom: 15px; overflow-x: auto;">
+// push() = agregar un elemento al FINAL del arreglo
+var frutas = ["Manzana", "Naranja"];
+frutas.push("Plátano"); // Ahora frutas = ["Manzana", "Naranja", "Plátano"]
+            </pre>
+
+            <h3 style="color: #333; margin-bottom: 10px;">Método: indexOf()</h3>
+            <pre style="background-color: #f4f4f4; padding: 15px; border-radius: 4px; margin-bottom: 15px; overflow-x: auto;">
+// indexOf() = buscar la posición de un elemento
+var colores = ["Rojo", "Azul", "Verde"];
+console.log(colores.indexOf("Azul")); // Resultado: 1
+console.log(colores.indexOf("Amarillo")); // Resultado: -1 (no existe)
+            </pre>
+
+            <h3 style="color: #333; margin-bottom: 10px;">Método: forEach()</h3>
+            <pre style="background-color: #f4f4f4; padding: 15px; border-radius: 4px; margin-bottom: 15px; overflow-x: auto;">
+// forEach() = recorrer cada elemento del arreglo
+var numeros = [1, 2, 3];
+numeros.forEach(function(numero) {
+    console.log(numero);
+});
+// Resultado: 1, 2, 3 (impreso uno por uno)
+
+// También puedes usar una "función flecha" (arrow function)
+numeros.forEach(numero => console.log(numero));
+            </pre>
+
+            <h3 style="color: #333; margin-bottom: 10px;">Método: filter()</h3>
+            <pre style="background-color: #f4f4f4; padding: 15px; border-radius: 4px; margin-bottom: 15px; overflow-x: auto;">
+// filter() = crear un NUEVO arreglo con elementos que cumplan una condición
+var numeros = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+var pares = numeros.filter(function(numero) {
+    return numero % 2 === 0; // % es el operador módulo (resto de división)
+});
+console.log(pares); // Resultado: [2, 4, 6, 8, 10]
+
+// Con función flecha (más corta)
+var pares = numeros.filter(numero => numero % 2 === 0);
+            </pre>
+        </div>
+
+        <!-- Sección 5: Arreglos de Objetos -->
+        <div class="card">
+            <h2 style="color: #007bff; margin-bottom: 15px;">5. Arreglos de Objetos (lo que usaremos)</h2>
+
+            <p style="margin-bottom: 15px;">
+                Aquí es donde todo cobra sentido. Un <strong>Objeto</strong> en JavaScript es como
+                un registro con múltiples campos (propiedades). Un <strong>Arreglo de Objetos</strong>
+                es una lista de registros.
+            </p>
+
+            <p style="margin-bottom: 15px;">
+                <strong>Analogía:</strong> Piensa en una tabla de Excel. Cada FILA es un objeto,
+                cada COLUMNA es una propiedad.
+            </p>
+
+            <pre style="background-color: #f4f4f4; padding: 15px; border-radius: 4px; margin-bottom: 15px; overflow-x: auto;">
+// Así se ve nuestra lista de clientes:
+// Cada objeto tiene: id, nombre, email, telefono
+
+var clientes = [
+    {
+        id: 1,
+        nombre: "Ana García",
+        email: "ana.garcia@email.com",
+        telefono: "555-1234"
+    },
+    {
+        id: 2,
+        nombre: "Luis Martínez",
+        email: "luis.martinez@email.com",
+        telefono: "555-5678"
+    },
+    {
+        id: 3,
+        nombre: "María López",
+        email: "maria.lopez@email.com",
+        telefono: "555-9012"
+    }
+];
+            </pre>
+
+            <p style="margin-bottom: 15px;">
+                <strong>¿Cómo accedemos a los datos de cada cliente?</strong>
+            </p>
+
+            <pre style="background-color: #f4f4f4; padding: 15px; border-radius: 4px; margin-bottom: 15px; overflow-x: auto;">
+// clients[0] = el primer objeto del arreglo
+// clients[0].nombre = la propiedad "nombre" del primer objeto
+
+console.log(clientes[0].nombre); // "Ana García"
+console.log(clientes[1].email); // "luis.martinez@email.com"
+console.log(clientes[2].telefono); // "555-9012"
+
+// También podemos recorrerlos todos con forEach:
+clientes.forEach(function(cliente) {
+    console.log(cliente.id + " - " + cliente.nombre);
+});
+// Resultado:
+// "1 - Ana García"
+// "2 - Luis Martínez"
+// "3 - María López"
+            </pre>
+        </div>
+
+        <!-- Sección 6: Filtrar Arreglos de Objetos -->
+        <div class="card">
+            <h2 style="color: #007bff; margin-bottom: 15px;">6. Cómo Filtrar Arreglos de Objetos</h2>
+
+            <p style="margin-bottom: 15px;">
+                El método <strong>filter()</strong> es muy útil para buscar elementos.
+                Necesitamos una función que devuelva <code>true</code> para los elementos
+                que queremos incluir.
+            </p>
+
+            <pre style="background-color: #f4f4f4; padding: 15px; border-radius: 4px; margin-bottom: 15px; overflow-x: auto;">
+// Ejemplo: Filtrar clientes cuyo nombre contenga "Ana"
+var clientes = [
+    { id: 1, nombre: "Ana García" },
+    { id: 2, nombre: "Luis Martínez" },
+    { id: 3, nombre: "Ana López" },
+    { id: 4, nombre: "Pedro García" }
+];
+
+// Filtrar por nombre
+var clientesFiltrados = clientes.filter(function(cliente) {
+    return cliente.nombre.includes("Ana"); // includes() verifica si contiene el texto
+});
+
+// Resultado: [{id:1, nombre:"Ana García"}, {id:3, nombre:"Ana López"}]
+
+// Filtrar por ID exacto
+var clientePorId = clientes.filter(function(cliente) {
+    return cliente.id === 2;
+});
+// Resultado: [{id:2, nombre:"Luis Martínez"}]
+            </pre>
+
+            <p style="margin-bottom: 15px;">
+                <strong>💡 Consejo:</strong> Para hacer una búsqueda más flexible (que funcione
+                con mayúsculas y minúsculas), convertimos todo a minúsculas:
+            </p>
+
+            <pre style="background-color: #f4f4f4; padding: 15px; border-radius: 4px; overflow-x: auto;">
+var textoBusqueda = "ana";
+var clientesFiltrados = clientes.filter(function(cliente) {
+    return cliente.nombre.toLowerCase().includes(textoBusqueda.toLowerCase());
+});
+            </pre>
+        </div>
+
+        <!-- Sección 7: Resumen -->
+        <div class="card">
+            <h2 style="color: #007bff; margin-bottom: 15px;">📋 Resumen Rápido</h2>
+
+            <table style="width: 100%; border-collapse: collapse;">
+                <thead>
+                    <tr style="background-color: #007bff; color: white;">
+                        <th style="padding: 10px; text-align: left;">Concepto</th>
+                        <th style="padding: 10px; text-align: left;">Sintaxis</th>
+                        <th style="padding: 10px; text-align: left;">Ejemplo</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td style="padding: 10px;">Crear arreglo</td>
+                        <td style="padding: 10px;"><code>var arr = []</code></td>
+                        <td style="padding: 10px;"><code>var nums = [1,2,3]</code></td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 10px;">Acceder elemento</td>
+                        <td style="padding: 10px;"><code>arr[índice]</code></td>
+                        <td style="padding: 10px;"><code>arr[0]</code></td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 10px;">Cantidad elementos</td>
+                        <td style="padding: 10px;"><code>arr.length</code></td>
+                        <td style="padding: 10px;"><code>[1,2,3].length = 3</code></td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 10px;">Agregar elemento</td>
+                        <td style="padding: 10px;"><code>arr.push(valor)</code></td>
+                        <td style="padding: 10px;"><code>arr.push(4)</code></td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 10px;">Recorrer arreglo</td>
+                        <td style="padding: 10px;"><code>arr.forEach(fn)</code></td>
+                        <td style="padding: 10px;"><code>arr.forEach(x => console.log(x))</code></td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 10px;">Filtrar elementos</td>
+                        <td style="padding: 10px;"><code>arr.filter(fn)</code></td>
+                        <td style="padding: 10px;"><code>arr.filter(x => x > 2)</code></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div style="text-align: center; margin-top: 30px;">
+            <a href="index.html" class="btn btn-primary">← Volver al Login</a>
+            <a href="dashboard.html" class="btn btn-secondary" style="margin-left: 10px;">Ir al Dashboard →</a>
+        </div>
+    </div>
+</body>
+</html>

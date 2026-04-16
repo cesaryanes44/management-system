@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Sistema de Gestión</title>
+    <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+    <!-- ================================================
+         ENCABEZADO CON BARRA DE NAVEGACIÓN
+         ================================================ -->
+    <header class="header">
+        <h2>Sistema de Gestión</h2>
+
+        <!-- Menú de navegación -->
+        <nav class="nav-menu">
+            <a href="dashboard.html">Inicio</a>
+            <a href="clientes.html">Clientes</a>
+            <a href="productos.html">Productos</a>
+        </nav>
+
+        <!-- Botón para cerrar sesión -->
+        <button
+            class="btn btn-danger"
+            onclick="cerrarSesion()"
+            style="padding: 5px 15px; font-size: 13px;"
+        >
+            Cerrar Sesión
+        </button>
+    </header>
+
+    <!-- ================================================
+         CONTENIDO PRINCIPAL DEL DASHBOARD
+         ================================================ -->
+    <main class="dashboard">
+        <!-- Mensaje de bienvenida -->
+        <div class="card" style="text-align: center;">
+            <h1 style="margin-bottom: 10px;">Bienvenido al Menu</h1>
+            <p style="color: #666;">Selecciona una de las opciones para comenzar:</p>
+        </div>
+
+        <!-- Cuadrícula de opciones del menú -->
+        <div class="dashboard-grid">
+
+            <!-- ================================================
+                 TARJETA 1: GESTIÓN DE CLIENTES
+                 ================================================ -->
+            <div class="dashboard-card">
+                <h3>Gestión de Clientes</h3>
+                <p>Ver y buscar en el listado de clientes registrados en el sistema.</p>
+                <p style="margin-top: 10px; font-size: 13px; color: #888;">
+                    Filtra por nombre o código de cliente
+                </p>
+                <a href="clientes.html" class="btn btn-primary" style="margin-top: 15px; display: inline-block;">
+                    Ir a Clientes
+                </a>
+            </div>
+
+            <!-- ================================================
+                 TARJETA 2: GESTIÓN DE PRODUCTOS
+                 ================================================ -->
+            <div class="dashboard-card">
+                <h3>Gestión de Productos</h3>
+                <p>Ver y buscar en el catálogo de productos disponibles.</p>
+                <p style="margin-top: 10px; font-size: 13px; color: #888;">
+                    Filtra por nombre o código de producto
+                </p>
+                <a href="productos.html" class="btn btn-secondary" style="margin-top: 15px; display: inline-block;">
+                    Ir a Productos
+                </a>
+            </div>
+
+            <!-- ================================================
+                 TARJETA 3: INFORMACIÓN ESTADÍSTICA (OPCIONAL)
+                 ================================================ -->
+            <div class="dashboard-card">
+                <h3>Estadísticas</h3>
+                <p style="margin-bottom: 15px;">Resumen rápido del sistema:</p>
+                <ul style="text-align: left; list-style: none; padding: 0;">
+                    <li style="padding: 5px 0; border-bottom: 1px solid #eee;">
+                        <strong>Total Clientes:</strong> <span id="total-clientes">10</span>
+                    </li>
+                    <li style="padding: 5px 0; border-bottom: 1px solid #eee;">
+                        <strong>Total Productos:</strong> <span id="total-productos">12</span>
+                    </li>
+                    <li style="padding: 5px 0;">
+                        <strong>Stock Total:</strong> <span id="stock-total">---</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </main>
+
+    <!-- Incluir los archivos JavaScript -->
+    <script src="datos.js"></script>
+    <script src="logica.js"></script>
+
+    <!-- Script para calcular estadísticas -->
+    <script>
+        // Esta función se ejecuta cuando carga la página
+        document.addEventListener("DOMContentLoaded", function() {
+            // Verificar que el usuario esté logueado
+            verificarSesion();
+
+            // Actualizar estadísticas del dashboard
+            document.getElementById("total-clientes").textContent = listaClientes.length;
+            document.getElementById("total-productos").textContent = listaProductos.length;
+
+            // Calcular stock total de productos
+            var stockTotal = 0;
+            listaProductos.forEach(function(producto) {
+                stockTotal = stockTotal + producto.stock;
+            });
+            document.getElementById("stock-total").textContent = stockTotal;
+        });
+    </script>
+</body>
+</html>
