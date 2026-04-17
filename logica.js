@@ -2,22 +2,11 @@
     ================================================
     EXPLICACIÓN DETALLADA DEL ARCHIVO "logica.js"
     ================================================
-
     Este archivo contiene la lógica JavaScript para las páginas HTML.
 
-    ¿Qué significa "lógica"?
-    Es el código que hace que la página SEA INTERACTIVA.
-    Por ejemplo:
-    - Validar el formulario de login
-    - Mostrar/ocultar mensajes de error
-    - Redirigir a otras páginas después del login
-    - Generar las filas de la tabla dinámicamente
-    - Filtrar los datos mientras el usuario escribe
-
-    CONTENIDO DE ESTE ARCHIVO:
-    1. Funciones para la página de Login
-    2. Funciones para la página de Clientes
-    3. Funciones para la página de Productos
+    Funciones para la página de Login
+    Funciones para la página de Clientes
+    Funciones para la página de Productos
 */
 
 // ----------------------------------------
@@ -54,49 +43,33 @@ function inicializarLogin() {
 /*
     FUNCIÓN: procesarLogin
 
-    Esta función se ejecuta cuando el usuario hace clic en el botón "Ingresar"
-    del formulario de login.
-
-    ¿Qué hace?
-    1. Obtiene los valores de usuario y contraseña
-    2. Los compara con las credenciales válidas (definidas en datos.js)
-    3. Si son correctos: redirige al dashboard
-    4. Si son incorrectos: muestra mensaje de error
+    Recoge los datos del formulario y los compara con las llaves de datos.js
+    si coinciden, nos deja entrar al Dashboard; si no, avisa que hubo un error.
 */
 function procesarLogin() {
     // === PASO 1: Obtener los valores del formulario ===
 
-    /*
-        document.getElementById("id") obtiene un elemento HTML por su ID.
-        .value obtiene el contenido del campo de texto.
-
-        El resultado se guarda en variables (cajas temporales).
-    */
-    var usuarioInput = document.getElementById("usuario");
+    var usuarioInput = document.getElementById("usuario"); // Busca y guarda el elemento para poder usarlo en JavaScript.
     var contrasenaInput = document.getElementById("contrasena");
     var mensajeError = document.getElementById("mensaje-error");
 
-    var usuarioIngresado = usuarioInput.value;
+    var usuarioIngresado = usuarioInput.value; // obtiene el contenido del campo de texto.
     var contrasenaIngresada = contrasenaInput.value;
 
     // === PASO 2: Limpiar mensajes anteriores ===
 
-    /*
-        Al iniciar, ocultamos cualquier mensaje de error previo.
-        Esto es importante para que no se acumulen mensajes.
-    */
+        // Reinicia el estado del formulario ocultando mensajes previos.
     mensajeError.style.display = "none";
     mensajeError.innerHTML = "";
 
     // === PASO 3: Validar que los campos no estén vacíos ===
 
     /*
-        trim() elimina espacios en blanco al inicio y final del texto.
-        Esto evita que el usuario ingrese solo espacios en blanco.
+        trim() Limpia espacios vacios
     */
     if (usuarioIngresado.trim() === "") {
         mostrarError("Por favor, ingresa tu nombre de usuario.");
-        usuarioInput.focus(); // focus() coloca el cursor en ese campo
+        usuarioInput.focus(); // coloca el cursor en ese campo
         return; // return termina la función inmediatamente
     }
 
@@ -116,9 +89,7 @@ function procesarLogin() {
         // === LOGIN EXITOSO ===
 
         /*
-            localStorage es una forma de guardar datos en el navegador.
-            Guardamos un "flag" (banderita) para indicar que el usuario ha iniciado sesión.
-            Esto nos permitirá verificar en otras páginas si el usuario está logueado.
+           Registra el inicio de sesión exitoso en la memoria del navegador.
         */
         localStorage.setItem("loggedIn", "true");
 
@@ -136,8 +107,7 @@ function procesarLogin() {
         mostrarError("Usuario o contraseña incorrectos. Intenta de nuevo.");
 
         /*
-            También limpiamos el campo de contraseña por seguridad.
-            (El usuario debe reingresar la contraseña completa.)
+            Limpia la clave y regresamos el cursor al campo para reintentar
         */
         contrasenaInput.value = "";
         contrasenaInput.focus();
@@ -146,31 +116,20 @@ function procesarLogin() {
 
 /*
     FUNCIÓN: mostrarError
-
-    Muestra un mensaje de error en el áreadesignada.
-
-    Parámetros:
-    - texto: el mensaje de error a mostrar
+    Muestra un mensaje de error en la página de login.
 */
 function mostrarError(texto) {
     var mensajeError = document.getElementById("mensaje-error");
-    mensajeError.innerHTML = texto; // innerHTML establece el contenido HTML
-    mensajeError.style.display = "block"; // display: block hace visible el elemento
+    mensajeError.innerHTML = texto; // establece el contenido HTML
+    mensajeError.style.display = "block"; // lo hace visibe
 }
 
 /*
-    FUNCIÓN: verificarSesion
-
-    Verifica si el usuario ha iniciado sesión.
-    Se usa en las páginas protegidas (dashboard, clientes, productos).
-
-    Si el usuario NO está logueado, lo redirige al login.
+    FUNCIÓN: verificarSesion\
+    Bloquea el acceso si el usuario no ha iniciado sesión
 */
 function verificarSesion() {
-    /*
-        localStorage.getItem("clave") obtiene un valor guardado previamente.
-        Si no existe, devuelve null.
-    */
+  
     var estaLogueado = localStorage.getItem("loggedIn");
 
     // Si no hay marca de login, redirigir al login
@@ -181,13 +140,12 @@ function verificarSesion() {
 
 /*
     FUNCIÓN: cerrarSesion
-
     Cierra la sesión del usuario.
     Se llama cuando el usuario hace clic en "Cerrar Sesión".
 */
 function cerrarSesion() {
     /*
-        localStorage.removeItem("clave") elimina un dato guardado.
+     elimina un dato guardado.
     */
     localStorage.removeItem("loggedIn");
 
@@ -204,9 +162,6 @@ function cerrarSesion() {
     FUNCIÓN: inicializarPaginaClientes
 
     Esta función se ejecuta cuando carga la página de clientes.
-    Hace dos cosas:
-    1. Verifica que el usuario esté logueado
-    2. Carga la lista de clientes en la tabla
 */
 function inicializarPaginaClientes() {
     // Verificar sesión
@@ -218,8 +173,7 @@ function inicializarPaginaClientes() {
 
 /*
     FUNCIÓN: cargarClientes
-
-    Lee los datos de clientes y genera las filas de la tabla HTML.
+    Lee los datos de clientes y genera las filas de la tabla.
 */
 function cargarClientes() {
     // Obtener el elemento tbody (donde irán las filas)
@@ -232,7 +186,7 @@ function cargarClientes() {
     // Filtrar clientes usando la función de datos.js
     var clientesFiltrados = filtrarClientes(textoBusqueda);
 
-    // Limpiar la tabla (eliminar filas anteriores)
+    // Limpia la tabla
     tablaBody.innerHTML = "";
 
     // === GENERAR LAS FILAS ===
@@ -286,10 +240,7 @@ function cargarClientes() {
 /*
     FUNCIÓN: filtrarAlEscribir
 
-    Se ejecuta cada vez que el usuario escribe algo en el campo de búsqueda.
-    Vuelve a cargar la tabla con los resultados filtrados.
-
-    Se conecta al evento "input" del campo de texto.
+   Se activa cada vez que el usuario escribe en el buscador
 */
 function filtrarAlEscribir() {
     // Detectar qué página está activa verificando la existencia de elementos
@@ -340,7 +291,7 @@ function cargarProductos() {
     // Limpiar tabla
     tablaBody.innerHTML = "";
 
-    // Generar filas
+    // Genera filas
     productosFiltrados.forEach(function(producto) {
         var fila = document.createElement("tr");
 
@@ -354,6 +305,7 @@ function cargarProductos() {
         celdaCategoria.textContent = producto.categoria;
 
         var celdaPrecio = document.createElement("td");
+        //Se usa la funcion de datos.js para el simbolo L
         celdaPrecio.textContent = formatearPrecio(producto.precio);
 
         var celdaStock = document.createElement("td");
@@ -380,34 +332,3 @@ function cargarProductos() {
     }
 }
 
-
-// ----------------------------------------
-// 4. RESUMEN DE CONCEPTOS CLAVE
-// ----------------------------------------
-
-/*
-    DOCUMENT OBJECT MODEL (DOM):
-    Es la representación de la página HTML como objetos en JavaScript.
-    Permite manipular elementos HTML desde JavaScript.
-
-    Métodos principales del DOM:
-    - document.getElementById("id") -> obtener elemento por ID
-    - document.createElement("tipo") -> crear nuevo elemento
-    - elemento.appendChild(child) -> agregar hijo a un elemento
-    - elemento.value -> obtener valor de input
-    - elemento.textContent -> obtener/establecer texto
-    - elemento.innerHTML -> obtener/establecer HTML
-    - elemento.style.propiedad -> modificar estilos CSS
-
-    EVENTOS:
-    Son "disparadores" que ocurren cuando el usuario interactúa.
-    - onclick -> cuando se hace clic
-    - oninput -> cuando se escribe en un campo
-    - onload -> cuando termina de cargar la página
-
-    LOCALSTORAGE:
-    Permite guardar datos en el navegador que persisten entre visitas.
-    - localStorage.setItem("clave", "valor") -> guardar
-    - localStorage.getItem("clave") -> obtener
-    - localStorage.removeItem("clave") -> eliminar
-*/

@@ -8,22 +8,21 @@
    RESET BÁSICO Y FUENTE PRINCIPAL
    ---------------------------------------- */
 * {
-    /* box-sizing: border-box asegura que el padding y el borde
-       se incluyan en el ancho/alto total del elemento. */
+    /* Evita que el relleno o los bordes hagan las cajas más grandes de lo que pedimos*/
     box-sizing: border-box;
+    /* Quita los espacios que el navegador pone por defecto para empezar desde cero */
     margin: 0;
     padding: 0;
 }
 
 body {
-    /* font-family: Define la fuente principal del texto. */
+    /* Fuente principal del texto. */
     font-family: Calibri, sans-serif;
 
-    /* background-color: Color de fondo de la página.
-    */
+    /*fondo de la página.*/
     background-color: #f4f4f4;
 
-    /* line-height: Altura de línea del texto.*/
+    /*Altura del texto.*/
     line-height: 1.6;
 }
 

@@ -242,15 +242,9 @@ function verificarLogin(usuario, contrasena) { //verfifica si el usuario y contr
 }
 
 /*
-    FUNCIÓN: filtrarClientes
-    busca clientes que coincidan con los criterios de búsqueda
-    - textoBusqueda: texto a buscar en nombre o ID
-    Retorno: Un NUEVO arreglo con los clientes que coinciden
-
-    1. El método filter() recorre cada elemento del arreglo
-    2. Para cada elemento (cada cliente), ejecuta la función de prueba
-    3. Si la función devuelve true, el elemento se incluye en el resultado
-    4. Si la función devuelve false, el elemento se exclude del resultado
+ Toma el texto que escribe el usuario y crea una lista nueva
+   solo con los clientes que coinciden con el nombre o el ID.
+   Si la prueba es verdadera (true), el cliente se muestra.
 */
 function filtrarClientes(textoBusqueda) {
     // Si no hay texto de búsqueda, devolver todos los clientes
@@ -281,9 +275,6 @@ function filtrarClientes(textoBusqueda) {
 
     Similar a filtrarClientes, pero para productos.
     Busca por ID de producto O por nombre.
-
-    La diferencia es que el ID del producto ya es texto (como "PROD-001"),
-    mientras que el ID del cliente es un número.
 */
 function filtrarProductos(textoBusqueda) {
     // Si no hay texto de búsqueda, devolver todos los productos
