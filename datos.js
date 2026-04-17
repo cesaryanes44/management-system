@@ -259,26 +259,17 @@ function verificarLogin(usuario, contrasena) { //verfifica si el usuario y contr
    Si la prueba es verdadera (true), el cliente se muestra.
 */
 function filtrarClientes(textoBusqueda) {
-    // Si no hay texto de búsqueda, devolver todos los clientes
-    if (textoBusqueda === "") {
-        return listaClientes;
-    }
-
-    // Convertir el texto a minúsculas para búsqueda sin distinción de mayúsculas
     var textoMinuscula = textoBusqueda.toLowerCase();
 
-    // filter() crea un nuevo arreglo con los elementos que cumplen la condición
-    return listaClientes.filter(function(cliente) {
-
-        // Incluir si el ID contiene el texto O si el nombre contiene el texto
-        // toString() convierte el número ID a texto
-        // includes() verifica si el texto está contenido en la cadena
-
+    var filtrados = listaClientes.filter(function(cliente) {
         var idContieneTexto = cliente.id.toString().includes(textoMinuscula);
         var nombreContieneTexto = cliente.nombre.toLowerCase().includes(textoMinuscula);
-
-        // Devolver true si AL MENOS una de las dos condiciones es verdadera
         return idContieneTexto || nombreContieneTexto;
+    });
+
+    // ESTO ORDENA DE LA A a la Z
+    return filtrados.sort(function(a, b) {
+        return a.nombre.localeCompare(b.nombre);
     });
 }
 

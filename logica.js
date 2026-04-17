@@ -195,7 +195,7 @@ function cargarClientes() {
         forEach recorre cada elemento del arreglo.
         Para cada cliente, creamos una fila HTML <tr> con celdas <td>.
     */
-    clientesFiltrados.forEach(function(cliente) {
+    clientesFiltrados.forEach(function(cliente, indice) {
         // Crear una fila
         var fila = document.createElement("tr");
 
@@ -206,6 +206,16 @@ function cargarClientes() {
         var celdaNombre = document.createElement("td");
         celdaNombre.textContent = cliente.nombre;
 
+        /*Colores al texto*/
+        if (indice % 2 === 0) {
+        fila.style.backgroundColor = "#e8f5e9"; // Verde claro
+        fila.style.color = "#2e7d32";           // Texto verde
+    } else {
+        fila.style.backgroundColor = "#e3f2fd"; // Azul claro
+        fila.style.color = "#1565c0";           // Texto azul
+    }
+        celdaNombre.style.fontWeight = "bold";
+        
         var celdaEmail = document.createElement("td");
         celdaEmail.textContent = cliente.email;
 
