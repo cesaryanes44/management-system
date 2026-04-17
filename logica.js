@@ -186,6 +186,9 @@ function cargarClientes() {
     // Filtrar clientes usando la función de datos.js
     var clientesFiltrados = filtrarClientes(textoBusqueda);
 
+    // Ordenar clientes alfabéticamente por nombre
+    var clientesOrdenados = ordenarClientesPorNombre(clientesFiltrados);
+
     // Limpia la tabla
     tablaBody.innerHTML = "";
 
@@ -195,9 +198,16 @@ function cargarClientes() {
         forEach recorre cada elemento del arreglo.
         Para cada cliente, creamos una fila HTML <tr> con celdas <td>.
     */
-    clientesFiltrados.forEach(function(cliente, indice) {
+    clientesOrdenados.forEach(function(cliente, indice) {
         // Crear una fila
         var fila = document.createElement("tr");
+
+        // Aplicar colores alternados a toda la fila
+        if (indice % 2 === 0) {
+            fila.style.backgroundColor = "#e8f5e9"; // Verde
+        } else {
+            fila.style.backgroundColor = "#e3f2fd"; // Azul
+        }
 
         // Crear las celdas (columnas) de la fila
         var celdaId = document.createElement("td");
@@ -206,16 +216,15 @@ function cargarClientes() {
         var celdaNombre = document.createElement("td");
         celdaNombre.textContent = cliente.nombre;
 
-        /*Colores al texto*/
+        // Aplicar color alternado al nombre (verde/azul)
         if (indice % 2 === 0) {
-        fila.style.backgroundColor = "#e8f5e9"; // Verde claro
-        fila.style.color = "#2e7d32";           // Texto verde
-    } else {
-        fila.style.backgroundColor = "#e3f2fd"; // Azul claro
-        fila.style.color = "#1565c0";           // Texto azul
-    }
-        celdaNombre.style.fontWeight = "bold";
-        
+            celdaNombre.style.color = "#2e7d32"; // Verde
+            celdaNombre.style.fontWeight = "bold";
+        } else {
+            celdaNombre.style.color = "#1565c0"; // Azul
+            celdaNombre.style.fontWeight = "bold";
+        }
+
         var celdaEmail = document.createElement("td");
         celdaEmail.textContent = cliente.email;
 
@@ -297,12 +306,22 @@ function cargarProductos() {
     // Filtrar productos
     var productosFiltrados = filtrarProductos(textoBusqueda);
 
+    // Ordenar productos alfabéticamente por nombre
+    var productosOrdenados = ordenarProductosPorNombre(productosFiltrados);
+
     // Limpiar tabla
     tablaBody.innerHTML = "";
 
-    // Genera filas
-    productosFiltrados.forEach(function(producto) {
+    // Genera filas con colores alternados
+    productosOrdenados.forEach(function(producto, indice) {
         var fila = document.createElement("tr");
+
+        // Aplicar colores alternados a toda la fila
+        if (indice % 2 === 0) {
+            fila.style.backgroundColor = "#e8f5e9"; // Verde claro
+        } else {
+            fila.style.backgroundColor = "#e3f2fd"; // Azul claro
+        }
 
         // Celda de imagen
         var celdaImagen = document.createElement("td");
@@ -323,6 +342,15 @@ function cargarProductos() {
 
         var celdaNombre = document.createElement("td");
         celdaNombre.textContent = producto.nombre;
+
+        // Aplicar color alternado al nombre (verde/azul)
+        if (indice % 2 === 0) {
+            celdaNombre.style.color = "#2e7d32"; // Verde
+            celdaNombre.style.fontWeight = "bold";
+        } else {
+            celdaNombre.style.color = "#1565c0"; // Azul
+            celdaNombre.style.fontWeight = "bold";
+        }
 
         var celdaCategoria = document.createElement("td");
         celdaCategoria.textContent = producto.categoria;
