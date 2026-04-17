@@ -291,6 +291,20 @@ body {
     font-size: 14px;
 }
 
+/* Estilo para las imágenes en la tabla*/
+.data-table img {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+/* Efecto Hover */
+.data-table img:hover {
+    transform: scale(1.2); /* La imagen se agranda */
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3); /* Agrega sombra*/
+    z-index: 10; /* imagen se agranda */
+    position: relative;
+}
+
 /* Tabla de datos */
 .data-table {
     width: 100%;

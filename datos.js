@@ -128,7 +128,8 @@ var listaProductos = [
         nombre: "Laptop HP Pavilion",
         categoria: "Electrónica",
         precio: 899.99,
-        stock: 15
+        stock: 15,
+        imagen: "img/laptop.jpg"
     },
 
     // Producto 2
@@ -137,7 +138,8 @@ var listaProductos = [
         nombre: "Mouse Inalámbrico",
         categoria: "Electrónica",
         precio: 24.99,
-        stock: 50
+        stock: 50,
+        imagen: "img/mouse.jpg"
     },
 
     // Producto 3
@@ -146,7 +148,8 @@ var listaProductos = [
         nombre: "Teclado Mecánico RGB",
         categoria: "Electrónica",
         precio: 79.99,
-        stock: 30
+        stock: 30,
+        imagen: "img/teclado.jpg"
     },
 
     // Producto 4
@@ -155,7 +158,8 @@ var listaProductos = [
         nombre: "Monitor 24 Pulgadas",
         categoria: "Electrónica",
         precio: 199.99,
-        stock: 20
+        stock: 20,
+        imagen: "img/monitor.jpg"
     },
 
     // Producto 5
@@ -164,16 +168,18 @@ var listaProductos = [
         nombre: "Escritorio de Oficina",
         categoria: "Muebles",
         precio: 249.99,
-        stock: 8
+        stock: 8,
+        imagen: "img/escritorio.jpg"
     },
 
     // Producto 6
     {
         id: "PROD-006",
-        nombre: "Silla Ergonómica",
+        nombre: "Silla Gamer",
         categoria: "Muebles",
         precio: 349.99,
-        stock: 12
+        stock: 12,
+        imagen: "img/silla.jpg"
     },
 
     // Producto 7
@@ -182,7 +188,8 @@ var listaProductos = [
         nombre: "Impresora Láser",
         categoria: "Oficina",
         precio: 149.99,
-        stock: 5
+        stock: 5,
+        imagen: "img/impresora.jpg"
     },
 
     // Producto 8
@@ -191,7 +198,8 @@ var listaProductos = [
         nombre: "Paquete de Papel A4",
         categoria: "Oficina",
         precio: 12.99,
-        stock: 100
+        stock: 100,
+        imagen: "img/papel.jpg"
     },
 
     // Producto 9
@@ -200,7 +208,8 @@ var listaProductos = [
         nombre: "Cafetera Automática",
         categoria: "Hogar",
         precio: 89.99,
-        stock: 25
+        stock: 25,
+        imagen: "img/cafetera.jpg"
     },
 
     // Producto 10
@@ -209,7 +218,8 @@ var listaProductos = [
         nombre: "Refrigeradora",
         categoria: "Hogar",
         precio: 299.99,
-        stock: 18
+        stock: 18,
+        imagen: "img/refrigeradora.jpg"
     },
 
     // Producto 11
@@ -218,7 +228,8 @@ var listaProductos = [
         nombre: "Auriculares Bluetooth",
         categoria: "Electrónica",
         precio: 59.99,
-        stock: 45
+        stock: 45,
+        imagen: "img/auriculares.jpg"
     },
 
     // Producto 12
@@ -227,7 +238,8 @@ var listaProductos = [
         nombre: "Webcam HD 1080p",
         categoria: "Electrónica",
         precio: 49.99,
-        stock: 35
+        stock: 35,
+        imagen: "img/webcam.jpg"
     }
 ];
 

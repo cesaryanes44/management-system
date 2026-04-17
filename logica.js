@@ -269,7 +269,6 @@ function filtrarAlEscribir() {
 function inicializarPaginaProductos() {
     // Verificar sesión
     verificarSesion();
-
     // Cargar productos en la tabla
     cargarProductos();
 }
@@ -295,6 +294,20 @@ function cargarProductos() {
     productosFiltrados.forEach(function(producto) {
         var fila = document.createElement("tr");
 
+        // Celda de imagen
+        var celdaImagen = document.createElement("td");
+
+        // Crear el elemento img
+        var img = document.createElement("img");
+        img.src = producto.imagen;  // URL imagen del producto
+        img.alt = producto.nombre; // nombre del producto
+        img.style.width = "60px";   // Ancho de imagen en tabla
+        img.style.height = "60px"; // Alto de imagen en tabla
+        img.style.objectFit = "cover"; // Para que la imagen cubra el espacio sin deformarse
+        img.style.borderRadius = "4px"; // Bordes redondeados
+
+        celdaImagen.appendChild(img);
+
         var celdaId = document.createElement("td");
         celdaId.textContent = producto.id;
 
@@ -312,6 +325,7 @@ function cargarProductos() {
         celdaStock.textContent = producto.stock;
 
         // Agregar celdas a la fila
+        fila.appendChild(celdaImagen);
         fila.appendChild(celdaId);
         fila.appendChild(celdaNombre);
         fila.appendChild(celdaCategoria);
